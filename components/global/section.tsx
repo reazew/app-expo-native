@@ -12,12 +12,14 @@ interface Props {
 
 export const Section = ({ title, label, size, children, action, className }: Props) => {
   return (
-    <View className={cn("w-full flex-row items-center justify-between px-4", className)}>
-      <Text className={cn("font-semibold my-4 self-start", size)}>{title}</Text>
+    <View className={cn("w-full flex gap-2 flex-col items-center", className)}>
+      <View className="w-full flex flex-row items-center justify-between px-4">
+        <Text className={cn("font-semibold my-4 self-start", size)}>{title}</Text>
+        <Pressable onPress={action}>
+          <Text>{label}</Text>
+        </Pressable>
+      </View>
       {children}
-      <Pressable onPress={action}>
-        <Text>{label}</Text>
-      </Pressable>
     </View>
   )
 } 
