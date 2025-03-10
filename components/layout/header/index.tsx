@@ -3,7 +3,7 @@ import { Pressable, Text, View } from "react-native"
 
 export const Header = () => {
   return (
-    <View className="w-full flex-row justify-between items-center p-4">
+    <View className="w-full flex-row justify-between items-center">
       <Pressable className="size-10 flex items-center justify-center bg-white rounded-full">
         <Menu size={24} color="black" />
       </Pressable>
