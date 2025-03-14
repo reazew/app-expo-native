@@ -14,13 +14,16 @@ interface FoodCardProps {
 
 export const FoodCardHorizontal = ({ food }: { food: FoodCardProps }) => {
   return (
-    <Pressable className="flex flex-col rounded-lg relative">
+    <Pressable 
+      className="flex flex-col rounded-lg relative"
+      onPress={() => console.log("pressable food:" + food.name)}
+    >
       <Image 
         source={{ uri: food.image }} 
         className="w-44 h-36 rounded-xl" 
       />
       <View className="bg-neutral-900/90 flex gap-1 flex-row items-center rounded-full absolute top-2 right-3 px-2 py-1">
-        <Star color="yellow"  size={14} />
+        <Star fill="yellow" color="yellow" size={14} />
         <Text className="text-white text-sm">{food.rating}</Text>
       </View>
       <Text className="text-green-700 font-medium text-lg">R$ {food.price}</Text>

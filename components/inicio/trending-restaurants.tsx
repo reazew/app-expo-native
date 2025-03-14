@@ -1,12 +1,12 @@
-import { FoodCardHorizontal } from "@/components/inicio/food-card-horizontal"
+import { RestaurantHorizontal } from "@/components/inicio/restaurant-horizontal"
 import { useQuery } from "@tanstack/react-query"
 import { ActivityIndicator, FlatList, Text, View } from "react-native"
 
-export const Trending = () => {
-  const { data: foods = [], isLoading, error } = useQuery({
-    queryKey: ['foods'],
+export const TrendingRestaurant = () => {
+  const { data: restaurants = [], isLoading, error } = useQuery({
+    queryKey: ['restaurants'],
     queryFn: async () => {
-      const response = await fetch("http://192.168.200.251:3000/foods")
+      const response = await fetch("http://192.168.200.251:3000/restaurants")
       return response.json()
     }
   })
@@ -22,15 +22,15 @@ export const Trending = () => {
   if (error) {
     return (
       <View className="flex flex-1 justify-center items-center">
-        <Text>Error loading foods</Text>
+        <Text>Error loading restaurants</Text>
       </View>
     )
   }
 
   return (
     <FlatList 
-      data={foods}
-      renderItem={({ item }) => <FoodCardHorizontal food={item} />}
+      data={restaurants}
+      renderItem={({ item }) => <RestaurantHorizontal item={item} />}
       keyExtractor={(item) => item.id}
       horizontal={true}
       showsHorizontalScrollIndicator={false}
