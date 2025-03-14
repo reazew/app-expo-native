@@ -1,4 +1,4 @@
-import { FoodCardHorizontal } from "@/components/inicio/food-card-horizontal"
+import { FoodCardHorizontal } from "@/components/inicio/foods/food-card-horizontal"
 import { useQuery } from "@tanstack/react-query"
 import { ActivityIndicator, FlatList, Text, View } from "react-native"
 

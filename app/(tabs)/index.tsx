@@ -1,13 +1,11 @@
+
 import { Search } from "@/components/global/search"
 import { Section } from "@/components/global/section"
-import { Banner } from "@/components/inicio/banner"
-import { Restaurants } from "@/components/inicio/restaurants"
-import { TrendingFood } from "@/components/inicio/trending-foods"
-import { TrendingRestaurant } from "@/components/inicio/trending-restaurants"
-import { Header } from "@/components/layout/header"
-import Constants from "expo-constants"
+import { BannerCarousel } from "@/components/inicio/banner-carousel"
+import { TrendingFood } from "@/components/inicio/foods/trending-foods"
+import { Restaurants } from "@/components/inicio/restaurants/restaurants"
+import { TrendingRestaurant } from "@/components/inicio/restaurants/trending-restaurants"
 import { ScrollView, View } from "react-native"
-const statusBarHeight = Constants.statusBarHeight
 
 export default function Index() {
   return (
@@ -16,8 +14,8 @@ export default function Index() {
       className="bg-white"
       showsVerticalScrollIndicator={false}
     >
-      <View className="w-full px-4" style={{ marginTop: statusBarHeight + 8}}>
-        <Banner />
+      <BannerCarousel />
+      <View className="w-full px-4 pt-4">
         <Search />
       </View>
       <Section 

@@ -1,8 +1,8 @@
-import { RestaurantItem, type RestaurantItemProps } from "@/components/inicio/restaurant-item"
+import { RestaurantHorizontal } from "@/components/inicio/restaurants/restaurant-horizontal"
 import { useQuery } from "@tanstack/react-query"
-import { ActivityIndicator, Text, View } from "react-native"
+import { ActivityIndicator, FlatList, Text, View } from "react-native"
 
-export const Restaurants = () => {
+export const TrendingRestaurant = () => {
   const { data: restaurants = [], isLoading, error } = useQuery({
     queryKey: ['restaurants'],
     queryFn: async () => {
@@ -28,10 +28,13 @@ export const Restaurants = () => {
   }
 
   return (
-    <View className="px-4 flex-1 w-full h-full mb-11 gap-4">
-      {restaurants.map((item: RestaurantItemProps) => (
-        <RestaurantItem key={item.id} item={item} />
-      ))}
-    </View>
+    <FlatList 
+      data={restaurants}
+      renderItem={({ item }) => <RestaurantHorizontal item={item} />}
+      keyExtractor={(item) => item.id}
+      horizontal={true}
+      showsHorizontalScrollIndicator={false}
+      contentContainerStyle={{ gap: 14, paddingLeft: 16, paddingRight: 16}}
+    />
   )
 }
